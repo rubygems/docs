@@ -1,7 +1,10 @@
-# SQLite version 3.x
-#   gem install sqlite3-ruby (not necessary on OS X Leopard)
 development:
   adapter: postgresql
   username: drbrain
+  database: rubygems_docs
+
+development:
+  adapter: postgresql
+  username: rubygems
   database: rubygems_docs
 
