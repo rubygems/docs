@@ -1,0 +1,9 @@
+<a href="#" onclick="document.getElementById('chapter_admin_<%= chapter.id %>').style.display='block'; return false;">Chapter options &rarr;</a>
+
+<ul id="chapter_admin_<%= chapter.id %>" class="admin">
+  <li><%= link_to "New page", :controller => "page", :action => "new", :id => chapter.id %> </li>
+  <li><%= link_to "Edit chapter title", :controller=> "chapter", :action=>"edit", :id => chapter.id  %> </li>
+  <li><%= link_to "Create sub chapter", :controller=> "chapter", :action=>"new", :id => chapter.book.id, :params => { "parent" => chapter.id }  %> </li>
+  <li><%= confirmed_link_to "Delete this chapter", :controller=> "chapter", :action=>"delete", :id => chapter.id %> </li>
+  <li>Move <%= list_link "up", chapter %> <%= list_link "down", chapter %> <%= list_link "top", chapter %> <%= list_link "bottom", chapter %></li>
+</ul>

@@ -1,0 +1,35 @@
+<%= render_errors @book %><br/>
+<table>
+  <tr>
+    <td>
+      <label for="book_title">Title:</label>
+    </td>
+    <td>
+      <%= text_field "book", "title", "size" => 30 %><br/>    
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="book_intro">Intro:<br/>
+      <small><a href="#" onClick="quickRedReference(); return false;">(formatting)</a></small></label>
+    </td>
+    <td>
+      <%= text_area "book", "intro", "rows" => 4, "cols"=> 60 %><br/>
+    </td>
+  </tr>  
+  <tr>
+    <td>
+      <label for="book_body">Book frontpage:<br/>
+      <small><a href="#" onClick="quickRedReference(); return false;">(formatting)</a></small></label>
+    </td>
+    <td>
+      <%= text_area "book", "body", "rows" => 20, "cols"=> 60 %><br/>
+    </td>
+  </tr>
+    <td>
+      <label for="book_published">Publish:</label>
+    </td>
+    <td>
+      <%= check_box("book", "published") %>
+    </td>
+</table>

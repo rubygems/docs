@@ -1,0 +1,25 @@
+<h1>Approve new authors</h1>
+
+<% if @users.empty? -%>
+
+<p>There are no pending users...</p>
+  
+<% else -%>
+
+<p>Following users requested author rights.</p> 
+
+  <% for user in @users %>
+  <div class="userinfo">
+    <h2><%= user.name %></h2>
+    <a href="mailto:<%= user.email %>"><%= user.email %></a> requested login : <%= user.login %>
+    <div class="body">    
+    <%= user.note %>
+    </div>
+    <br/>
+    <%= link_to "approve", :controller => "account", :action => "approve", :id => user.id %> |
+    <%= link_to "delete", :controller => "account", :action => "delete", :id => user.id %>
+  </div>
+  <br/>
+
+  <% end -%>
+<% end -%>

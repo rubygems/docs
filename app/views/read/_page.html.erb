@@ -1,0 +1,11 @@
+<div class="page">
+<a name="page<%= page.id %>"></a>
+
+<h2 class="pageheader"><%= link_to_page "#{@chapter.position}.#{page.position} #{page.title}", page %></h2>
+
+<%= render :partial => 'shared/page_options', :locals => { :page => page } if author? %>
+
+<div class="body">
+<%= page.body_html %>
+</div>
+</div>

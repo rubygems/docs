@@ -1,0 +1,21 @@
+<h1><%= @chapter.chapter_descriptor %>. <%= @chapter.title %> </h1>
+<% if author? then -%>
+<%= render :partial => 'shared/chapter_options',
+           :locals => { :chapter => @chapter } %>
+<% end -%>
+
+<%= render :partial => 'page', :collection => @chapter.pages %>
+
+<div>
+<% if p = find_prev_item(@chapter) then -%>
+<div class="left-floaty">
+  <%= link_to_chapter "&larr; previous chapter", p %>
+</div>
+<% end -%>
+
+<% if n = find_next_item(@chapter) then -%>
+<div class="right-floaty">
+  <%= link_to_chapter "next chapter &rarr;", n %>
+</div>
+<% end -%>
+</div>

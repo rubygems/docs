@@ -1,0 +1,22 @@
+<h2>Revision log for <em>"<%= @page.title %>"</em></h2>
+
+<p>work in progress..</p>
+
+<table>
+  <tr>
+    <th>Date</th><th>Revision</th><th>Title</th>
+  </tr>
+  <% for rev in @page.revisions.find_all -%>
+  <tr>
+    <td>
+      <%= rev.updated_at %>
+    </td>
+    <td>
+      <%= rev.revision %>
+    </td>
+    <td>
+      <%= rev.title %>
+    </td>
+  </tr>
+  <% end -%>
+</table>

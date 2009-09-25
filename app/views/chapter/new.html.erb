@@ -1,0 +1,9 @@
+<%= form_tag :action => 'new' %>
+<h1>Create chapter</h1>
+
+<%= hidden_field 'chapter', 'book_id' %>
+<%= hidden_field 'chapter', 'parent_id' %>
+<%= render :partial => 'form' %>
+
+<input type="submit" id="form_submit"  value="Store" />
+</form>

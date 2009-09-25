@@ -1,0 +1,16 @@
+<h1>About "<%= @book.title %>"</h1>
+
+<%= render :partial => 'shared/book_options', :locals => { :book => @book } if author? %>
+
+<%= @book.body_html %>
+
+<h2>Contents</h2>
+
+<% if n = @book.children.first then -%>
+<ol>
+<%= render_navigation @book %>
+</ol>
+<% else -%>
+<p>This book is empty.</p>
+<% end -%>
+</div>

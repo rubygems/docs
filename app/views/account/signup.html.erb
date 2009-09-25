@@ -1,0 +1,58 @@
+<%= form_tag :action=> "signup" %>
+<h1>Apply for an author account</h1>
+<%= render_errors @author %><br/>
+
+<table>
+  <tr>
+    <td>
+      <label for="author_name">Your name:</label>
+    </td>
+    <td>
+      <%= text_field 'author', 'name', :size => 30 %>
+    </td>
+  </tr>    
+  <tr>
+    <td>
+      <label for="author_email">Email:</label>
+    </td>
+    <td>
+      <%= text_field 'author', 'email', :size => 30 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="author_login">Desired login:</label>
+    </td>
+    <td>
+      <%= text_field 'author', 'login', :size => 30 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="author_password">Choose password:</label>
+    </td>
+    <td>
+      <%= password_field 'author', 'password', :size => 30 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="author_password_confirmation">Confirm password:</label>
+    </td>
+    <td>
+      <%= password_field 'author', 'password_confirmation', :size => 30 %>
+    </td>
+  </tr>  
+  <tr>
+    <td>
+      <label for="author_note">Why you would like an account: <span>(optional)</span></label><br/>
+    </td>
+    <td>
+      <%= text_area 'author', 'note', 'cols' => 40, 'rows' => 4 %><br/>
+    </td>
+  </tr>
+</table>
+
+<input type="submit" value="Signup" class="primary" />
+</form>
+

@@ -1,0 +1,18 @@
+<h1>The RubyGems bookshelf</h1>
+
+<% unless Book.published.empty? then -%>
+
+<p>Select a book from the list below<% if author? then %> or <%= link_to 'create your own', :controller => 'book', :action => 'new'  %> book<% end %>.</p>
+
+<%   Book.published.each do |book| -%>
+<div class="bookinfo">
+<h3><%= link_to book.title, :controller => 'read', :action => 'book', :id => book.id %></h3>
+<%= render :partial => 'shared/book_options', :locals => { :book => book } if author? %>
+<div class="body">
+<%= book.intro_html %>
+</div>
+</div>
+<%   end
+   else -%>
+<p>There are currently no books on the bookshelf</p>
+<% end -%>

@@ -1,0 +1,27 @@
+<% if book then -%>
+  <h2>Chapters</h2>
+  <ol>
+    <%= render_navigation book %>
+  </ol>
+  <br />
+  <br />
+  <h2>Options</h2>
+
+  <%= link_to 'exports', :controller => 'export', :action => 'book', :id => book.id %><br />
+<% else -%>
+  <h2>Welcome</h2>
+  <p>Choose a book...</p>
+  <br />
+  <br />
+<% end -%>
+
+<%= link_to 'recent changes', :controller => 'shelf', :action => 'recent' %><br />
+<%= link_to 'rss 2.0', :controller=>'syndicate', :action => 'rss' %> |
+<%= link_to 'atom', :controller=>'syndicate', :action => 'atom' %>
+
+<br />
+<br />
+
+<h2>Authors</h2>
+<%= render :partial => 'shared/side_options',
+           :locals => { :book => book, :chapter => chapter } %>

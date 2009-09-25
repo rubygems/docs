@@ -1,0 +1,8 @@
+<a href="#" onclick="document.getElementById('admin_book_<%= book.id  %>').style.display='inline'; return false;">options &rarr;</a>
+
+<span id="admin_book_<%= book.id %>" class="admin">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to 'edit', :controller => 'book', :action => 'edit', :id => book.id %> | 
+<%= confirmed_link_to 'delete', :controller => 'book', :action=> 'delete',
+                      :id => book.id %> 
+</span>

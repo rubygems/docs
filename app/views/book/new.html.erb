@@ -1,0 +1,16 @@
+<script type="text/javascript">
+initPreview("book_body", "livepreview", "...")
+</script>
+
+<%= form_tag :action => 'new' %>
+<h1>Create a new book</h1>
+
+<%= render :partial => 'form' %>
+
+<input type="submit" id="form_submit"  value="Save" />  
+</form>
+
+<h2>Preview</h2>
+
+<div id="livepreview">
+</div>

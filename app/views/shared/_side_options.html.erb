@@ -1,0 +1,13 @@
+<% if author? then -%>
+<%=  link_to 'Approve users', :controller => 'user', :action => 'approve' %><br/>
+<%=  link_to 'Create book', :controller => 'book', :action => 'new' %><br/>
+<%   if book then -%>
+<%=    link_to 'Append chapter', :controller => 'chapter', :action => 'new', :id => book.id %><br/>
+<%   end -%>
+<%   if chapter then -%>
+<%=    link_to 'Append page', :controller => 'page', :action => 'new', :id => chapter.id %><br/>
+<%   end -%>
+<% else -%>
+<%=  link_to 'Login', :controller => 'account', :action => 'login' %>
+<%=  link_to 'Signup', :controller => 'account', :action => 'signup' %>
+<% end -%>

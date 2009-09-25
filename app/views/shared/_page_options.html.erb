@@ -1,0 +1,12 @@
+<a href="#" onclick="document.getElementById('admin_<%= page.id %>').style.display='inline'; return false;">options &rarr;</a>
+
+<span id="admin_<%= page.id %>" class="admin">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to 'edit', :controller => 'page', :action => 'edit', :id => page.id %> | 
+<%= confirmed_link_to 'delete', :controller => 'page', :action => 'delete',
+                      :id => page.id  %> |
+move <%= list_link 'up', page %> <%= list_link 'down', page %> 
+<%= list_link 'top', page %>/<%= list_link 'bottom', page %> 
+<%= link_to 'log', :controller => 'page', :action => 'history',
+            :id => page.id %>
+</span>

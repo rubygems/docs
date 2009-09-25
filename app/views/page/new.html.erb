@@ -1,0 +1,16 @@
+<%= form_tag :action => 'new', :id => @chapter.id %>
+<h1>New Page</h1>
+
+<%= render :partial => 'form' %>
+
+<input type="submit" id="form_submit"  value="Store" />
+</form>
+<br />
+
+<script type="text/javascript">
+initPreview("page_body", "livepreview", "...")
+</script>
+
+<h2>Preview</h2>
+<div id="livepreview">
+</div>
