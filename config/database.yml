@@ -3,7 +3,7 @@ development:
   username: drbrain
   database: rubygems_docs
 
-development:
+production:
   adapter: postgresql
   username: rubygems
   database: rubygems_docs
