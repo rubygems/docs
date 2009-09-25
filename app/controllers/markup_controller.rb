@@ -1,3 +1,5 @@
+require 'html_engine'
+
 class MarkupController < ApplicationController
 
   layout nil

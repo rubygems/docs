@@ -1,4 +1,4 @@
-class TextileExporter
+class Exporter::Textile
 
   def initialize
     @body = ""

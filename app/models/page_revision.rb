@@ -1,3 +1,5 @@
+require 'html_engine'
+
 class PageRevision < ActiveRecord::Base
   belongs_to :page
   belongs_to :author

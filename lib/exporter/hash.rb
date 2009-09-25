@@ -1,4 +1,4 @@
-class HashExporter
+class Exporter::Hash
   attr_accessor :root
 
   def initialize

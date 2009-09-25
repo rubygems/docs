@@ -1,3 +1,5 @@
+require 'html_engine'
+
 class Page < ActiveRecord::Base
   belongs_to :chapter
   belongs_to :author

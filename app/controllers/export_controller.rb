@@ -1,29 +1,31 @@
+require 'exporter'
+
 class ExportController < ApplicationController
   before_filter :set_book
 
   def html
-    @html = HtmlExporter.new
+    @html = Exporter::Html.new
     @book.export @html
 
-    render_without_layout
+    render :layout => false
   end
 
   def text
-    text = TextExporter.new
+    text = Exporter::Text.new
     @book.export text
 
     render_export text
   end
 
   def textile
-    textile = TextileExporter.new
+    textile = Exporter::Textile.new
     @book.export textile
 
     render_export textile
   end
 
   def yaml
-    yaml = YamlExporter.new
+    yaml = Exporter::Yaml.new
     @book.export yaml
 
     render_export yaml
@@ -33,7 +35,7 @@ class ExportController < ApplicationController
 
   def render_export(txt)
     headers['Content-Type'] = 'text/plain'
-    render_text txt.to_s
+    render :text =>htxt.to_s
   end
 
   def set_book

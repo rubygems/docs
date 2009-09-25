@@ -18,6 +18,7 @@ Rails::Initializer.run do |config|
   # rake gems:install
   config.gem 'RedCloth'
   config.gem 'syntax'
+  config.gem 'text-format', :lib => 'text/format'
 
   # Only load the plugins named here, in the order given (default is
   # alphabetical).

@@ -1,3 +1,5 @@
+require 'html_engine'
+
 class Book < ActiveRecord::Base
 
   has_many :children, :conditions => 'parent_id IS NULL',

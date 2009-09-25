@@ -1,6 +1,6 @@
-require_dependency "format"
+require 'text/format'
 
-class TextExporter
+class Exporter::Text
 
   attr_accessor :text
 
