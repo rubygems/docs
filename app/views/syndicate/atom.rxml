@@ -1,9 +1,10 @@
-xml.feed "version" => "0.3", "xml:lang" => "en-US", "xmlns" => "http://purl.org/atom/ns#" do
-  xml.title "Hieraki recent changes"
-  xml.tagline "mode" => "escaped", "type" => "text/html"
+xml.feed('version' => '0.3', 'xml:lang' => 'en-US',
+         'xmlns' => 'http://purl.org/atom/ns#') do
+  xml.title 'Hieraki recent changes'
+  xml.tagline 'mode' => 'escaped', 'type' => 'text/html'
   xml.id "tag:#{request.host},2004:Hieraki"
-  xml.generator "Hieraki", "url" => "http://www.hieraki.org"
-  xml.link "rel" => "alternate", "type" => "text/html", "href" => server_url_for(:controller => "shelf")
+  xml.generator 'Hieraki', 'url' => 'http://www.hieraki.org'
+  xml.link 'rel' => 'alternate', 'type' => 'text/html', 'href' => shelf_url
 
   xml.modified @posts.first.updated_at.xmlschema unless @posts.empty?
 
@@ -16,9 +17,10 @@ xml.feed "version" => "0.3", "xml:lang" => "en-US", "xmlns" => "http://purl.org/
       xml.modified entry.updated_at.xmlschema
       xml.title post_title(entry)
 
-      xml.link "rel" => "alternate", "type" => "text/html", "href" => post_link(entry)
+      xml.link('rel' => 'alternate', 'type' => 'text/html',
+               'href' => post_link(entry))
 
-      xml.content entry.body_html, "type" => "text/html", "mode" => "escaped"
+      xml.content entry.body_html, 'type' => 'text/html', 'mode' => 'escaped'
     end
   end
 end

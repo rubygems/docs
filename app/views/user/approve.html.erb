@@ -16,8 +16,8 @@
     <%= user.note %>
     </div>
     <br/>
-    <%= link_to "approve", :controller => "account", :action => "approve", :id => user.id %> |
-    <%= link_to "delete", :controller => "account", :action => "delete", :id => user.id %>
+    <%= link_to 'approve', :controller => 'account', :action => 'approve', :id => user.id %> |
+    <%= link_to 'delete',  delete_user_path(user) %>
   </div>
   <br/>
 

@@ -1,11 +1,5 @@
 module SyndicateHelper
 
-  def server_url_for(options = {})
-    options = options.megre :only_path => false
-
-    url_for options
-  end
-
   def pub_date(time)
     time.strftime "%a, %e %b %Y %H:%M:%S %Z"
   end
@@ -15,9 +9,9 @@ module SyndicateHelper
   end
 
   def post_link(post)
-    server_url_for(:controller => 'read', :action => 'chapter',
-                   :id => post.page.chapter.id,
-                   :anchor => "page#{post.page.id}")
+    url_for(:controller => 'read', :action => 'chapter',
+            :id => post.page.chapter.id, :anchor => "page#{post.page.id}",
+            :only_path => false)
   end
 
 end

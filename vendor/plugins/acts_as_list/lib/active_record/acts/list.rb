@@ -123,7 +123,7 @@ module ActiveRecord
         def remove_from_list
           if in_list?
             decrement_positions_on_lower_items
-            update_attribute position_column, nil
+            update_attribute position_column, -1
           end
         end
 

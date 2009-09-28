@@ -4,10 +4,9 @@
   <p>You can export the current book in following formats:</p>
   
   <ul>
-  <li><%= link_to "html", :action=> "html", :id => @book.id %></li>
-  <li><%= link_to "yaml", :action=> "yaml", :id => @book.id %></li>
-  <li><%= link_to "textile", :action=> "textile", :id => @book.id %></li>
-  <li><%= link_to "text", :action=> "text", :id => @book.id %></li>
+    <li><%= link_to 'html',    html_export_path(@book) %></li>
+    <li><%= link_to 'yaml',    yaml_export_path(@book) %></li>
+    <li><%= link_to 'textile', textile_export_path(@book) %></li>
+    <li><%= link_to 'text',    text_export_path(@book) %></li>
   </ul>
-  
 </div>

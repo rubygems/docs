@@ -18,7 +18,7 @@ class BookController < ApplicationController
       [matches].flatten.compact.uniq.each { |book| book.destroy }
     end
 
-    redirect_to_shelf
+    redirect_to shelf_path
   end
 
   def edit

@@ -9,7 +9,7 @@ module LoginSystem
   # a popup window might just close itself for instance
 
   def access_denied
-    redirect_to :controller => 'account', :action => 'login'
+    redirect_to login_path
   end
 
   # overwrite this if you want to restrict access to only a few actions or if
@@ -55,7 +55,7 @@ module LoginSystem
     if session[:return_to].nil? then
       redirect_to default
     else
-      redirect_to_url session[:return_to]
+      redirect_to session[:return_to]
       session[:return_to] = nil
     end
   end

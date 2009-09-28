@@ -10,11 +10,7 @@ module ApplicationHelper
 
   def book_title_or_tagline(string)
     return string unless @book
-    link_to_book @book.title, @book
-  end
-
-  def confirmed_link_to(title, options = {})
-    link_to title, options, :confirm => 'Are you sure?'
+    link_to @book.title, book_path(@book)
   end
 
   def find_next_item(current)
@@ -37,26 +33,12 @@ module ApplicationHelper
             :action => direction, :id => obj.id)
   end
 
-  def link_to_book(text, book)
-    link_to(text, :controller => 'read', :action => 'book', :id => book.id)
-  end
-
-  def link_to_chapter(text, chapter)
-    link_to(text, :controller => 'read', :action => 'chapter',
-            :id => chapter.id)
-  end
-
   def link_to_image(image, options)
     link_to image_tag(image), options
   end
 
   def link_to_page(text, page)
-    link_to(text, :controller => 'read', :action => 'chapter',
-            :id => page.chapter.id, :anchor=> "page#{page.id}")
-  end
-
-  def link_to_shelf(text)
-    link_to(text)
+    link_to text, chapter_path(page.chapter, :anchor => "page#{page.id}")
   end
 
   def render_errors(obj)
@@ -100,7 +82,7 @@ module ApplicationHelper
 
     for item in parent.children
       if configuration[:chapters] then
-        nav << "<li>#{link_to_chapter(item.title, item)}</li>\n"
+        nav << "<li>#{link_to item.title, chapter_path(item)}</li>\n"
       end
 
       # if this is the currently active category add links to pages

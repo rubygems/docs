@@ -7,15 +7,15 @@
 <%= render :partial => 'page', :collection => @chapter.pages %>
 
 <div>
-<% if p = find_prev_item(@chapter) then -%>
+<% if prv = find_prev_item(@chapter) then -%>
 <div class="left-floaty">
-  <%= link_to_chapter "&larr; previous chapter", p %>
+  <%= link_to '&larr; previous chapter', chapter_path(prv) %>
 </div>
 <% end -%>
 
-<% if n = find_next_item(@chapter) then -%>
+<% if nxt = find_next_item(@chapter) then -%>
 <div class="right-floaty">
-  <%= link_to_chapter "next chapter &rarr;", n %>
+  <%= link_to 'next chapter &rarr;', nxt %>
 </div>
 <% end -%>
 </div>

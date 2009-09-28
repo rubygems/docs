@@ -13,7 +13,7 @@ class AccountController < ApplicationController
       end
     end
 
-    redirect_back_or_default :controller => 'shelf', :action => 'index'
+    redirect_back_or_default shelf_path
   end
 
   def delete
@@ -22,7 +22,7 @@ class AccountController < ApplicationController
       @author.destroy if @author
     end
 
-    redirect_back_or_default :controller => 'shelf', :action => 'index'
+    redirect_back_or_default shelf_path
   end
 
   def login
@@ -33,7 +33,7 @@ class AccountController < ApplicationController
         session[:author] = author
 
         flash['notice']  = 'Login successful'
-        redirect_back_or_default :controller => 'shelf', :action => 'index'
+        redirect_back_or_default shelf_path
 
         return
       else
@@ -58,7 +58,7 @@ class AccountController < ApplicationController
         Author.authenticate @author.login, params[:author][:password]
 
       if session[:author] then
-        redirect_back_or_default :controller => 'shelf', :action => 'index'
+        redirect_back_or_default shelf_path
       else
         redirect_to :action => 'welcome'
       end

@@ -1,13 +1,13 @@
 <% if author? then -%>
-<%=  link_to 'Approve users', :controller => 'user', :action => 'approve' %><br/>
-<%=  link_to 'Create book', :controller => 'book', :action => 'new' %><br/>
+<%=  link_to 'Approve users', approve_path %><br/>
+<%=  link_to 'Create book', new_book_path %><br/>
 <%   if book then -%>
-<%=    link_to 'Append chapter', :controller => 'chapter', :action => 'new', :id => book.id %><br/>
+<%=    link_to 'Append chapter', new_chapter_path(book) %><br/>
 <%   end -%>
 <%   if chapter then -%>
-<%=    link_to 'Append page', :controller => 'page', :action => 'new', :id => chapter.id %><br/>
+<%=    link_to 'Append page', new_page_path(chapter) %><br/>
 <%   end -%>
 <% else -%>
-<%=  link_to 'Login', :controller => 'account', :action => 'login' %>
-<%=  link_to 'Signup', :controller => 'account', :action => 'signup' %>
+<%=  link_to 'Login',  login_path %>
+<%=  link_to 'Signup', signup_path %>
 <% end -%>

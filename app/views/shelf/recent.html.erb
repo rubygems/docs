@@ -1,18 +1,23 @@
 <h2>Recent changes</h2>
-<%= link_to_image 'xml.png', :controller => 'syndicate', :action => 'atom' %> Atom<br/>
-<%= link_to_image 'xml.png', :controller => 'syndicate', :action => 'rss' %> RSS 2.0<br/>
-  
+<%= link_to_image 'xml.png', atom_path %> Atom<br />
+<%= link_to_image 'xml.png', rss_path %> RSS 2.0<br />
+
+<ul>
 <% for date, revisions in @timeline -%>
-  <li><ul><b><%= date.strftime '%B %d,%Y' %></b>
+<li>
+  <ul>
+  <b><%= date.strftime '%B %d,%Y' %></b>
   <% for revision in revisions -%>
   <li>
-    <%= link_to_book revision.page.chapter.book.title, revision.page.chapter.book %>: <%= link_to_page revision.title, revision.page %>
+  <%= link_to revision.page.chapter.book.title, book_path(revision.page.chapter.book) %>:
+  <%= link_to_page revision.title, revision.page %>
     <div class="byline" style="margin-bottom: 0px">
        by <%= revision.author.name -%>
        at <%= revision.created_at.strftime '%I:%M%p' -%>
      </div>
-   </li>
+  </li>
   <% end -%>
-  </li></ul>
+</ul>
+</li>
 <% end -%>
 </ul>

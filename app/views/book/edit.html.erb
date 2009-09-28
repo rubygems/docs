@@ -2,7 +2,7 @@
 initPreview("book_body", "livepreview", "...")
 </script>
 
-<%= form_tag :action => 'edit', :id => @book.id %>
+<%= form_tag edit_book_path(@book) %>
 <h1>Editing Book</h1>
 
 <%= render :partial => 'form' %>

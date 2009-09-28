@@ -7,17 +7,14 @@
   <br />
   <h2>Options</h2>
 
-  <%= link_to 'exports', :controller => 'export', :action => 'book', :id => book.id %><br />
+  <%= link_to 'exports', export_book_path(book) %><br />
 <% else -%>
   <h2>Welcome</h2>
-  <p>Choose a book...</p>
-  <br />
-  <br />
 <% end -%>
 
-<%= link_to 'recent changes', :controller => 'shelf', :action => 'recent' %><br />
-<%= link_to 'rss 2.0', :controller=>'syndicate', :action => 'rss' %> |
-<%= link_to 'atom', :controller=>'syndicate', :action => 'atom' %>
+<%= link_to 'recent changes', recent_path %><br />
+<%= link_to 'rss 2.0', rss_feed_path %> |
+<%= link_to 'atom', atom_feed_path %>
 
 <br />
 <br />

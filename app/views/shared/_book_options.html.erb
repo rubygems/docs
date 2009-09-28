@@ -2,7 +2,6 @@
 
 <span id="admin_book_<%= book.id %>" class="admin">
 &nbsp;&nbsp;&nbsp;&nbsp;
-<%= link_to 'edit', :controller => 'book', :action => 'edit', :id => book.id %> | 
-<%= confirmed_link_to 'delete', :controller => 'book', :action=> 'delete',
-                      :id => book.id %> 
+<%= link_to 'edit',   edit_book_path(book) %> | 
+<%= link_to 'delete', delete_book_path(book), :confirm => 'Are you sure?' %> 
 </span>

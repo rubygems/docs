@@ -3,9 +3,11 @@ class ChapterController < ApplicationController
   before_filter :login_required
 
   def new
-    @book = Book.find params[:id]
+    @book = Book.find params[:book_id]
     @chapter = @book.chapters.build params[:chapter]
-    @chapter.parent_id ||= params[:parent] || 0
+
+    @chapter.parent = @book.chapters.find params[:chapter_id] if
+      params.key? :chapter_id
 
     if request.post? and @chapter.save then
       flash['notice'] = 'Chapter was successfully created.'

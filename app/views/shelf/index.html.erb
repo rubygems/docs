@@ -2,11 +2,14 @@
 
 <% unless Book.published.empty? then -%>
 
-<p>Select a book from the list below<% if author? then %> or <%= link_to 'create your own', :controller => 'book', :action => 'new'  %> book<% end %>.</p>
+<p>Select a book from the list below<% if author? then %> or
+   <%= link_to 'create your own', new_book_path %> book<% end %>.</p>
 
-<%   Book.published.each do |book| -%>
+<%   Book.find(:all).each do |book|
+       next unless author? or !book.published? -%>
 <div class="bookinfo">
-<h3><%= link_to book.title, :controller => 'read', :action => 'book', :id => book.id %></h3>
+<h3><%= link_to book.title, book_path(book) %></h3>
+<%= "(unpublished)" if author? and not book.published? %>
 <%= render :partial => 'shared/book_options', :locals => { :book => book } if author? %>
 <div class="body">
 <%= book.intro_html %>

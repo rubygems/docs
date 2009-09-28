@@ -4,13 +4,13 @@ class ErrorController < ApplicationController
     @title = "Access Denied"
     @message = "You must be logged in to see this page."
     @return_string = "Login"
-    @return_url = url_for :controller => 'account', :action => 'login'
+    @return_url = login_path
     render_action 'generic'
   end
 
   def email_approval_error
     @return_string = 'Back to Approvals'
-    @return_url = url_for :controller => 'user', :action => 'approve'
+    @return_url = approve_path
 
     if !session[:author] then
       # since this error page shows the approved author's email address, we

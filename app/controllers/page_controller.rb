@@ -79,7 +79,7 @@ class PageController < ApplicationController
         @page.send list_method
         redirect_to_chapter @chapter
       else
-        redirect_to_shelf
+        redirect_to shelf_path
       end
     end
   end

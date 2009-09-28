@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/stylesheets/forms.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/more.css" type="text/css" />
 
-    <link rel="alternate" type="application/rss+xml"  title="Recent changes (RSS 2.0)"  href="<%= url_for :controller => "syndicate", :action => "rss" %>" />
-    <link rel="alternate" type="application/atom+xml" title="Recent changes (Atom 0.3)" href="<%= url_for :controller => "syndicate", :action => "atom" %>" />
+    <link rel="alternate" type="application/rss+xml"  title="Recent changes (RSS 2.0)"  href="<%= rss_feed_path %>" />
+    <link rel="alternate" type="application/atom+xml" title="Recent changes (Atom 0.3)" href="<%= atom_feed_path %>" />
 
 <% if author? then -%>
     <script type="text/javascript" src="/javascripts/markup.js"></script>
@@ -19,7 +19,7 @@
     <div id="container">
       <img src="/images/rubygems-125x125t.png" align="left">
       <div id="header">
-        <h1><%= link_to "RubyGems Manuals", :controller => "shelf", :action =>"index" %></h1>
+        <h1><%= link_to 'RubyGems Manuals', shelf_path %></h1>
         <p class="tagline"><%= book_title_or_tagline "Your guide to packaging bliss"  %></p>
         <ul id="navMain">
 <%= render :partial => 'shared/top_navigation', :locals => { :book => @book } %>

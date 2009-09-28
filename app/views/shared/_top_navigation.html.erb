@@ -1,7 +1,6 @@
-<li class="first-child current"><%= link_to "bookshelf", :controller => "shelf", :action => "index" %></li>
+<li class="first-child current"><%= link_to 'Manuals', shelf_path %></li>
 <% if book then -%>
-<li><%= link_to 'current book', :controller => 'read', :action => 'book', :id=> @book.id %></li>
+<li><%= link_to 'Current Book', book_path(@book), :title => @book.title %></li>
 <% end -%>
 <li><a href="http://rubyforge.org/frs/?group_id=126">Downloads</a></li>
-<li><a href="http://docs.rubygems.org/">Manuals</a></li>
 <li><a href="http://rubygems.rubyforge.org/rubygems-update/">API Documentation</a></li>
