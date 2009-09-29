@@ -6,7 +6,7 @@
    <%= link_to 'create your own', new_book_path %> book<% end %>.</p>
 
 <%   Book.find(:all).each do |book|
-       next unless author? or !book.published? -%>
+       next unless author? or book.published? -%>
 <div class="bookinfo">
 <h3><%= link_to book.title, book_path(book) %></h3>
 <%= "(unpublished)" if author? and not book.published? %>
