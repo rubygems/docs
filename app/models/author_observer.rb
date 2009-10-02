@@ -6,9 +6,7 @@ class AuthorObserver < ActiveRecord::Observer
   end
 
   def after_save(author)
-    if CONFIG['email'] and author.freshly_approved? then
-      Notifier.deliver_account_approval author
-    end
+    Notifier.deliver_account_approval author if author.freshly_approved? then
   end
 
 end
