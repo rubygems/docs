@@ -34,7 +34,7 @@ class ExportController < ApplicationController
   private
 
   def render_export(txt)
-    headers['Content-Type'] = 'text/plain'
+    response.headers['Content-Type'] = 'text/plain'
     render :text => txt.to_s
   end
 

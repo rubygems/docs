@@ -22,7 +22,7 @@ class SyndicateController < ApplicationController
   private
 
   def serve_xml
-    headers['Content-Type'] = 'application/xml'
+    response.headers['Content-Type'] = 'application/xml'
   end
 
 end
