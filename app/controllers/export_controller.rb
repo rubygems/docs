@@ -35,7 +35,7 @@ class ExportController < ApplicationController
 
   def render_export(txt)
     headers['Content-Type'] = 'text/plain'
-    render :text =>htxt.to_s
+    render :text => txt.to_s
   end
 
   def set_book
