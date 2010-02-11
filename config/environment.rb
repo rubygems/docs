@@ -19,6 +19,7 @@ Rails::Initializer.run do |config|
   config.gem 'RedCloth'
   config.gem 'syntax'
   config.gem 'text-format', :lib => 'text/format'
+  config.gem 'newrelic_rpm'
 
   # Only load the plugins named here, in the order given (default is
   # alphabetical).
