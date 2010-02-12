@@ -15,11 +15,11 @@
     <div class="body">    
     <%= user.note %>
     </div>
-    <br/>
+    <br>
     <%= link_to 'approve', :controller => 'account', :action => 'approve', :id => user.id %> |
     <%= link_to 'delete',  delete_user_path(user) %>
   </div>
-  <br/>
+  <br>
 
   <% end -%>
 <% end -%>

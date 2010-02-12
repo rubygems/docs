@@ -1,11 +1,11 @@
 <% if author? then -%>
-<%=  link_to 'Approve users', approve_path %><br/>
-<%=  link_to 'Create book', new_book_path %><br/>
+<%=  link_to 'Approve users', approve_path %><br>
+<%=  link_to 'Create book', new_book_path %><br>
 <%   if book then -%>
-<%=    link_to 'Append chapter', new_chapter_path(book) %><br/>
+<%=    link_to 'Append chapter', new_chapter_path(book) %><br>
 <%   end -%>
 <%   if chapter then -%>
-<%=    link_to 'Append page', new_page_path(chapter) %><br/>
+<%=    link_to 'Append page', new_page_path(chapter) %><br>
 <%   end -%>
 <% else -%>
 <%=  link_to 'Login',  login_path %>

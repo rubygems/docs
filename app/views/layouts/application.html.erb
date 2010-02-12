@@ -1,15 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><%= "#{@book.title} | " if @book %> RubyGems Manuals</title>
-    <link rel="alternate stylesheet" title="dark" href="/stylesheets/dark.css" type="text/css" />
-    <link rel="stylesheet" href="/stylesheets/base.css" type="text/css" />
-    <link rel="stylesheet" href="/stylesheets/forms.css" type="text/css" />
-    <link rel="stylesheet" href="/stylesheets/more.css" type="text/css" />
+    <link rel="alternate stylesheet" title="dark" href="/stylesheets/dark.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/base.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/forms.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/more.css" type="text/css">
 
-    <link rel="alternate" type="application/rss+xml"  title="Recent changes (RSS 2.0)"  href="<%= rss_feed_path %>" />
-    <link rel="alternate" type="application/atom+xml" title="Recent changes (Atom 0.3)" href="<%= atom_feed_path %>" />
+    <link rel="alternate" type="application/rss+xml"  title="Recent changes (RSS 2.0)"  href="<%= rss_feed_path %>">
+    <link rel="alternate" type="application/atom+xml" title="Recent changes (Atom 0.3)" href="<%= atom_feed_path %>">
 
 <% if author? then -%>
     <script type="text/javascript" src="/javascripts/markup.js"></script>

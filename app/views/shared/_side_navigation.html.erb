@@ -3,21 +3,21 @@
 <ol>
 <%= render_navigation book %>
 </ol>
-<br />
-<br />
+<br>
+<br>
 <h2>Options</h2>
 
-<%= link_to 'exports', export_book_path(book) %><br />
+<%= link_to 'exports', export_book_path(book) %><br>
 <% else -%>
 <h2>Welcome</h2>
 <% end -%>
 
-<%= link_to 'recent changes', recent_path %><br />
+<%= link_to 'recent changes', recent_path %><br>
 <%= link_to 'rss 2.0', rss_feed_path %> |
 <%= link_to 'atom', atom_feed_path %>
 
-<br />
-<br />
+<br>
+<br>
 
 <h2>Authors</h2>
 <%= render :partial => 'shared/side_options',
