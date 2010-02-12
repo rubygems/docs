@@ -41,7 +41,7 @@ common: &default_settings
     # other words, when SQL statements exceed this threshold, then capture and
     # send to RPM the current stack trace. This is helpful for pinpointing
     # where long SQL calls originate from
-    stack_trace_threshold: 0.500
+    stack_trace_threshold: 0.300
 
   # Error collector captures information about uncaught exceptions and sends
   # them to RPM for viewing
