@@ -1,0 +1,17 @@
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>docs.rubygems.org recent changes</title>
+    <link><%= shelf_url %></link>
+    <language>en-us</language>
+    <ttl>40</ttl>
+    <description>docs.rubygems.org recent changes</description>
+<% @posts.each do |entry| -%>
+    <item>
+      <title><%=h post_title(entry) %></title>
+      <description><%=h entry.body %></description>
+      <pubDate><%= entry.created_at.rfc822 %></pubDate>
+      <link><%=h post_link(entry) %></link>
+    </item>
+<% end -%>
+  </channel>
+</rss>
