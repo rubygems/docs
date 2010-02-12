@@ -36,17 +36,17 @@
         </ul>
 
         <div id="navAuthor"><%= author_welcomeline %></div>
-      </div> <!-- #header -->
+      </div><!-- #header -->
 
       <div id="sidebar">
 <%= render :partial => 'shared/side_navigation',
            :locals => { :book => @book, :chapter => @chapter } %>
-      </div> <!-- #sidebar -->
+      </div><!-- #sidebar -->
 
       <div id="content">
 <%= @content_for_layout %>
-      </div>
+      </div><!-- #content -->
 
-    </div> <!-- #container -->
+    </div><!-- #container -->
   </body>
 </html>

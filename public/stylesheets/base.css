@@ -360,3 +360,7 @@ background-position: 0 -70px;
 #reference #container {
   max-width: 100%;
 }
+
+.tt {
+  font-family: monospace;
+}
