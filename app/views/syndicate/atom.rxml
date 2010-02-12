@@ -1,6 +1,6 @@
 xml.feed('version' => '0.3', 'xml:lang' => 'en-US',
          'xmlns' => 'http://purl.org/atom/ns#') do
-  xml.title 'Hieraki recent changes'
+  xml.title 'docs.rubygems.org recent changes'
   xml.tagline 'mode' => 'escaped', 'type' => 'text/html'
   xml.id "tag:#{request.host},2004:Hieraki"
   xml.generator 'Hieraki', 'url' => 'http://www.hieraki.org'
