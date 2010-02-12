@@ -2,6 +2,12 @@ AddHandler fcgid-script .fcgi
 
 RewriteEngine On
 
+RewriteCond %{HTTP_USER_AGENT} !^FeedBurner.*$
+RewriteRule ^syndicate/atom/feed.xml$ http://feeds.feedburner.com/RubyGems-Docs-Recent-Changes-atom [R,L]
+
+RewriteCond %{HTTP_USER_AGENT} !^FeedBurner.*$
+RewriteRule ^syndicate/rss/feed.xml$ http://feeds.feedburner.com/RubyGems-Docs-Recent-Changes-atom [R,L]
+
 RewriteRule ^$ index.html [QSA]
 RewriteRule ^([^.]+)$ $1.html [QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
