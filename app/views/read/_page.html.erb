@@ -3,7 +3,18 @@
 
 <h2 class="pageheader"><%= link_to_page "#{@chapter.position}.#{page.position} #{page.title}", page %></h2>
 
-<%= render :partial => 'shared/page_options', :locals => { :page => page } if author? %>
+<% if author? then -%>
+<a href="#" onclick="document.getElementById('admin_page_<%= page.id %>').style.display='inline'; return false;">options &rarr;</a>
+
+<span id="admin_page_<%= page.id %>" class="admin">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to 'log', history_page_path(page) %> |
+<%= link_to 'edit', edit_page_path(page) %> |
+<%= link_to 'delete', delete_page_path(page), :confirm => 'Are you sure?' %> |
+Move <%= list_link 'up', page %> <%= list_link 'down', page %>
+     <%= list_link 'top', page %> <%= list_link 'bottom', page %>
+</span>
+<% end -%>
 
 <div class="body">
 <%= page.body_html %>

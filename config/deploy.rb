@@ -21,6 +21,7 @@ namespace :vlad do
     run "sudo chmod g+w #{shared_path}/log/#{rails_env}.log"
   end
 
+  task "mark deployment with newrelic"
   remote_task :mark_deployment do
     run "cd #{deploy_to}/scm/; ruby vendor/plugins/newrelic_rpm/bin/newrelic_cmd deployments -a docs.rubygems.org -e production -r `svnversion #{deploy_to}/scm`"
   end
