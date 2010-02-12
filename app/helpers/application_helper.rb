@@ -71,37 +71,28 @@ module ApplicationHelper
     tag.join "\n"
   end
 
-  def render_navigation(parent, options = {})
+  def render_navigation parent
     return unless parent.respond_to? :children
-
-    configuration = { :recursive => true, :chapters => true, :pages => true }
-
-    configuration.update(options) if Hash === options
 
     nav = []
 
-    for item in parent.children
-      if configuration[:chapters] then
-        nav << "<li>#{link_to item.title, chapter_path(item)}</li>\n"
-      end
+    parent.children.each do |item|
+      nav << "<li>#{link_to item.title, chapter_path(item)}\n"
 
       # if this is the currently active category add links to pages
-      if configuration[:pages] and not item.pages.empty? then
+      unless item.pages.empty? then
         nav << "<ul>\n"
-        item.pages.each do |page|
-          nav << '<li>'
-          nav << link_to_page(page.title, page)
-          nav << "</li>\n"
-        end
+        nav << item.pages.map { |page|
+          "<li>#{link_to_page page.title, page}</li>\n"
+        }
         nav << "</ul>\n"
       end
 
       # add sub categories
-      if configuration[:recursive] and not item.children.empty? then
-        nav << "<ol>\n"
-        nav << render_navigation(item, options)
-        nav << "</ol>\n"
-      end
+      nav << "<ol>\n#{render_navigation item}</ol>\n" unless
+        item.children.empty?
+
+      nav << "</li>\n"
     end
 
     nav.join

@@ -1,15 +1,15 @@
 <% if book then -%>
-  <h2>Chapters</h2>
-  <ol>
-    <%= render_navigation book %>
-  </ol>
-  <br />
-  <br />
-  <h2>Options</h2>
+<h2>Chapters</h2>
+<ol>
+<%= render_navigation book %>
+</ol>
+<br />
+<br />
+<h2>Options</h2>
 
-  <%= link_to 'exports', export_book_path(book) %><br />
+<%= link_to 'exports', export_book_path(book) %><br />
 <% else -%>
-  <h2>Welcome</h2>
+<h2>Welcome</h2>
 <% end -%>
 
 <%= link_to 'recent changes', recent_path %><br />
