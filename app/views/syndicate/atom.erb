@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
+  <title>docs.rubygems.org recent changes</title>
+  <id>tag:docs.rubygems.org,2004:Hieraki</id>
+  <generator uri="http://www.hieraki.org">Hieraki</generator>
+  <link href="http://docs.rubygems.org/shelf/index" rel="alternate" type="text/html"/>
+  <updated><%= @posts.first.updated_at.xmlschema %></updated>
+<% @posts.each do |entry| %>
+  <entry>
+    <author>
+      <name><%=h entry.author.name %></name>
+    </author>
+    <id>tag:<%= request.host %>,2004:Hieraki-<%= entry.id %></id>
+    <updated><%= entry.updated_at.xmlschema %></updated>
+    <title><%=h post_title entry %></title>
+    <link rel="alternate" type="text/html" href="<%= post_link entry %>"/>
+    <content type="html"><%=h entry.body_html %></content>
+  </entry>
+<% end %>
+</feed>
