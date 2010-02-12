@@ -32,15 +32,54 @@
         <h1><%= link_to 'RubyGems Manuals', shelf_path %></h1>
         <p class="tagline"><%= book_title_or_tagline "Your guide to packaging bliss"  %></p>
         <ul id="navMain">
-<%= render :partial => 'shared/top_navigation', :locals => { :book => @book } %>
+<li class="first-child current"><%= link_to 'Manuals', shelf_path %></li>
+<% if @book then -%>
+<li><%= link_to 'Current Book', book_path(@book), :title => @book.title %></li>
+<% end -%>
+<li><a href="http://rubyforge.org/frs/?group_id=126">Downloads</a></li>
+<li><a href="http://rubygems.rubyforge.org/rubygems-update/">API Documentation</a></li>
         </ul>
 
         <div id="navAuthor"><%= author_welcomeline %></div>
       </div><!-- #header -->
 
       <div id="sidebar">
-<%= render :partial => 'shared/side_navigation',
-           :locals => { :book => @book, :chapter => @chapter } %>
+<% if @book then -%>
+<h2>Chapters</h2>
+<ol>
+<%= render_navigation @book %>
+</ol>
+<br>
+<br>
+<h2>Options</h2>
+
+<%= link_to 'exports', export_book_path(@book) %><br>
+<% else -%>
+<h2>Welcome</h2>
+<% end -%>
+
+<%= link_to 'recent changes', recent_path %><br>
+<%= link_to 'rss 2.0', rss_feed_path %> |
+<%= link_to 'atom', atom_feed_path %>
+
+<br>
+<br>
+
+<h2>Authors</h2>
+
+<% if author? then -%>
+<%=  link_to 'Approve users', approve_path %><br>
+<%=  link_to 'Create book', new_book_path %><br>
+<%   if @book then -%>
+<%=    link_to 'Append chapter', new_chapter_path(@book) %><br>
+<%   end -%>
+<%   if @chapter then -%>
+<%=    link_to 'Append page', new_page_path(@chapter) %><br>
+<%   end -%>
+<% else -%>
+<%=  link_to 'Login',  login_path %>
+<%=  link_to 'Signup', signup_path %>
+<% end -%>
       </div><!-- #sidebar -->
 
       <div id="content">
