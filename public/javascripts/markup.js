@@ -96,8 +96,13 @@ function liveReqDoReq() {
     liveReq.onreadystatechange = liveReqProcessReqChange;
     liveReq.open("POST", processURI);
     liveReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    var text = "text=";
+    text += encodeURI(document.getElementById(searchFieldId).value);
+    text += "&authenticity_token=";
+    token = document.forms.item(0).elements.namedItem("authenticity_token").value
+    text += encodeURIComponent(token);
     liveReqLast = document.getElementById(searchFieldId).value;
-    liveReq.send("text=" + encodeURI(document.getElementById(searchFieldId).value));
+    liveReq.send(text);
   } else if (document.getElementById(searchFieldId).value == "") {
     if (emptyString == '') {
       document.getElementById(resultFieldId).innerHTML = '';

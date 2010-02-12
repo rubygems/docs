@@ -7,9 +7,9 @@ class MarkupController < ApplicationController
   def preview
     case request.method
     when :get then
-      render_text "This is a markup transformation service. Please talk to me with HTTP POST"
+      render :text => "This is a markup transformation service. Please talk to me with HTTP POST"
     when :post then
-      render_text HtmlEngine.transform(request.raw_post)
+      render :text => HtmlEngine.transform(params['text'])
     end
   end
 
