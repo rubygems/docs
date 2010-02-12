@@ -91,4 +91,5 @@ test:
 production:
   <<: *default_settings
   enabled: true
+  agent_enabled: true
 
