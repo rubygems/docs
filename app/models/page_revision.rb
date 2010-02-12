@@ -24,7 +24,7 @@ class PageRevision < ActiveRecord::Base
   end
 
   def self.recent_changes(limit, offset = 0)
-    find_by_sql [RECENT_CHANGES_SQL, offset, limit]
+    find_by_sql [RECENT_CHANGES_SQL, limit, offset]
   end
 
   def body_html

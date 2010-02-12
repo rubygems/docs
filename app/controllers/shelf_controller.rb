@@ -10,26 +10,21 @@ class ShelfController < ApplicationController
   def recent
     require 'date/format'
 
-    @recent = PageRevision.recent_changes(20, calculate_offset)
+    recent = PageRevision.recent_changes 20, calculate_offset
 
-    timeline = @recent.inject(Hash.new) do |hash, item|
-      date = date_from_time(item.created_at)
-      hash[date] ||= []
-      hash[date] << item
-      hash
+    timeline = Hash.new { |h,k| h[k] = [] }
+
+    recent.each do |item|
+      timeline[date_from_time(item.created_at)] << item
     end
 
-    @timeline = sort_desc(timeline)
+    @timeline = timeline.sort_by do |date, items| -date.to_i end
   end
 
   private
 
-  def date_from_time(time)
-    Date.new(time.year, time.month, time.day)
-  end
-
-  def sort_desc(list)
-    list.sort { |a,b| -(a <=> b) }
+  def date_from_time time
+    Time.mktime time.year, time.month, time.day
   end
 
 end
